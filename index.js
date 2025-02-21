@@ -16,7 +16,7 @@ const { body, validationResult } = require('express-validator');
 const winston = require('winston');
 //* Configuración del logger
 
-const logger = winston.createLogger({
+/*const logger = winston.createLogger({
     level: 'info',
     format: winston.format.combine(
         winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
@@ -35,7 +35,7 @@ if (process.env.NODE_ENV !== 'production') {
     logger.add(new winston.transports.Console({
       format: winston.format.simple()
     }));
-  }
+  }*/
 //* Configuracion de cifrado de token
 const jwtSecret = process.env.JWTSECRET;
 //* Configuracion de bcrypt 
