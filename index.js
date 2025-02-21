@@ -14,9 +14,10 @@ const cookieParser = require('cookie-parser');
 const csurf = require('csurf');
 const { body, validationResult } = require('express-validator');
 const winston = require('winston');
+const rateLimit = require('express-rate-limit');
 //* Configuración del logger
 
-/*const logger = winston.createLogger({
+const logger = winston.createLogger({
     level: 'info',
     format: winston.format.combine(
         winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
@@ -26,7 +27,7 @@ const winston = require('winston');
     ),
     transports: [
         new winston.transports.Console(),
-        new winston.transports.File({ filename: 'Logs/app.log' })
+        new winston.transports.File({ filename: 'app.log' })
     ]
 });
 
@@ -35,7 +36,7 @@ if (process.env.NODE_ENV !== 'production') {
     logger.add(new winston.transports.Console({
       format: winston.format.simple()
     }));
-  }*/
+  }
 //* Configuracion de cifrado de token
 const jwtSecret = process.env.JWTSECRET;
 //* Configuracion de bcrypt 
@@ -57,6 +58,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 const csrftProtection = csurf({ cookie: true });
 app.use(csurf({ cookie: true }));
+//*Configurar limitador
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutos
+  max: 5, // Máximo 5 intentos
+  message: 'Demasiados intentos de login, intenta más tarde',
+});
 
 app.get('/', (req, res) => {
     res.json('¡Hi, World!, in express');
@@ -76,10 +83,19 @@ app.get('/get-csrf-token', (req, res) => {
     res.send({ csrfToken: csrfToken });
 });
 
-app.post('/login', csrftProtection, async (req, res) => {
+app.post('/login', csrftProtection, loginLimiter,
+  [
+    body('_email').isEmail().withMessage('Email inválido'),
+    body('_password').isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres')
+  ], async (req, res) => {
   try {
-    logger.info('[Info] Iniciando proceso de login');
+    logger.info('Iniciando proceso de login');
     //variables de request
+    const errores = validationResult(req);
+    if (!errores.isEmpty()) {
+      logger.error('Error al iniciar sesion: Los valores no son admitidos');
+      return res.status(400).json({ errores: errores.array() });
+    }
     const {_email,_password} = req.body;
     password.set(_password);
     email.set(_email);
@@ -95,28 +111,29 @@ app.post('/login', csrftProtection, async (req, res) => {
         jwt.sign({
           email: emailBD.get(),
           id: idUsuario.get()
-        }, jwtSecret, {}, (err, token) => {
+        }, jwtSecret,{ expiresIn: '1h' }, (err, token) => {
           if (err) {
-            logger.error('[Error] Error al generar el token JWT:', err);
+            logger.error('Error al generar el token JWT:', err);
             throw err;
           }
-          logger.info(`[Info] Token generado: ${token}`);
+          logger.info(`Token generado para: ${email.get()}`);
           res.cookie('token', token).json(emailBD.get());
         });
       }else{
         res.status(422).json({
           error: 'Contraseña incorrecta'
         });
-        logger.warn('[Warning] Contraseña incorrecta por el usuario '+email.get());
+        logger.warn('Contraseña incorrecta por el usuario '+email.get());
       }
     }else{
       res.status(422).json({
         error: 'Usuario no encontrado'
       });
+      logger.warn('El usuario '+email.get()+' no existe');
     }
   } catch (error) {
     res.send('[Error] Algo a fallado (⊙_⊙)？');
-    logger.error('Error en la conexión:', error.message);
+    logger.error('Error grave:', error.message);
   }
 });
 

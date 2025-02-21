@@ -1,0 +1,38 @@
+2025-02-21 17:32:31 [info]: [Info] Iniciando proceso de login
+2025-02-21 17:32:32 [warn]: [Warning] Contraseña incorrecta por el usuario test@email.com
+2025-02-21 17:32:41 [info]: [Info] Iniciando proceso de login
+2025-02-21 17:32:41 [info]: [Info] Token generado: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwiaWQiOjMsImlhdCI6MTc0MDE4MDc2MX0.HmuCHhEuIseSrLmbjpBj9PN2w3bjSMoSHXHml7hAlEo
+2025-02-21 17:32:48 [info]: [Info] Iniciando proceso de login
+2025-02-21 17:33:01 [info]: [Info] Iniciando proceso de login
+2025-02-21 17:33:01 [info]: [Info] Token generado: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwiaWQiOjMsImlhdCI6MTc0MDE4MDc4MX0.DmWBbzxtcbyTfrbItdtNqcvJR9ZL7_19T7HAEV5gK0s
+2025-02-21 17:42:08 [info]: Iniciando proceso de login
+2025-02-21 17:42:08 [info]: [Info] Token generado: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwiaWQiOjMsImlhdCI6MTc0MDE4MTMyOH0.lnDoucgUbSXfSALoMqzSukQ86nUPAzKiDeNOQO8cGIU
+2025-02-21 17:42:15 [info]: Iniciando proceso de login
+2025-02-21 17:42:17 [info]: Iniciando proceso de login
+2025-02-21 17:42:19 [info]: Iniciando proceso de login
+2025-02-21 17:42:20 [info]: Iniciando proceso de login
+2025-02-21 17:44:21 [info]: Iniciando proceso de login
+2025-02-21 17:44:21 [info]: [Info] Token generado: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwiaWQiOjMsImlhdCI6MTc0MDE4MTQ2MSwiZXhwIjoxNzQwMTg1MDYxfQ.nhGp67VEkaAWs4Vwz6HyM8NNLv5voGje75DXRzYOB4M
+2025-02-21 17:48:53 [info]: Iniciando proceso de login por undefined
+2025-02-21 17:48:53 [error]: Error al iniciar sesion: [object Object]
+2025-02-21 17:49:10 [info]: Iniciando proceso de login por undefined
+2025-02-21 17:49:10 [error]: Error al iniciar sesion: [object Object]
+2025-02-21 17:49:11 [info]: Iniciando proceso de login por undefined
+2025-02-21 17:49:11 [error]: Error al iniciar sesion: [object Object]
+2025-02-21 17:49:14 [info]: Iniciando proceso de login por undefined
+2025-02-21 17:49:14 [error]: Error al iniciar sesion: [object Object]
+2025-02-21 17:49:15 [info]: Iniciando proceso de login por undefined
+2025-02-21 17:49:15 [error]: Error al iniciar sesion: [object Object]
+2025-02-21 17:50:48 [info]: Iniciando proceso de login
+2025-02-21 17:50:48 [warn]: El usuario test@email.co no existe
+2025-02-21 17:50:55 [info]: Iniciando proceso de login
+2025-02-21 17:50:55 [error]: Error al iniciar sesion: [object Object]
+2025-02-21 17:51:17 [info]: Iniciando proceso de login
+2025-02-21 17:51:17 [error]: Error al iniciar sesion: undefined
+2025-02-21 17:52:56 [info]: Iniciando proceso de login
+2025-02-21 17:52:56 [error]: Error grave:
+2025-02-21 17:53:54 [info]: Iniciando proceso de login
+2025-02-21 17:54:54 [info]: Iniciando proceso de login
+2025-02-21 17:54:54 [error]: Error al iniciar sesion: Los valores no son admitidos
+2025-02-21 17:55:00 [info]: Iniciando proceso de login
+2025-02-21 17:55:00 [info]: Token generado para: test@email.com
