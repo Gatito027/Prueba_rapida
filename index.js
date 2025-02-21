@@ -7,7 +7,7 @@ const { email, password } = require('./Models/loginModel.js');
 const { idUsuario, nombre, emailBD, passwordBD, telefono, rol, estado, fechaRegistro, sucursalId } = require('./Models/usuariosWeb.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const cors = require('cors');
+//const cors = require('cors');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
@@ -15,15 +15,21 @@ const csurf = require('csurf');
 const { body, validationResult } = require('express-validator');
 const winston = require('winston');
 //* Configuración del logger
+
 const logger = winston.createLogger({
-  level: 'info',
-  format: winston.format.json(),
-  transports: [
-    // Registrar en un archivo
-    new winston.transports.File({ filename: 'error.log', level: 'error' }),
-    new winston.transports.File({ filename: 'combined.log' })
-  ]
+    level: 'info',
+    format: winston.format.combine(
+        winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+        winston.format.printf(({ timestamp, level, message }) => {
+            return `${timestamp} [${level}]: ${message}`;
+        })
+    ),
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.File({ filename: 'Logs/app.log' })
+    ]
 });
+
 
 if (process.env.NODE_ENV !== 'production') {
     logger.add(new winston.transports.Console({
@@ -35,11 +41,11 @@ const jwtSecret = process.env.JWTSECRET;
 //* Configuracion de bcrypt 
 const bcryptSalt=bcrypt.genSaltSync(10);
 //*Configuracion de Cors
-app.use(cors({
+/*app.use(cors({
     credentials: true,
     origin: '*',
     //origin: 'http://localhost',
-}));
+}));*/
 //*Configuracion del helmet
 app.use(helmet());
 //*Permite usar json
@@ -71,6 +77,7 @@ app.get('/get-csrf-token', (req, res) => {
 
 app.post('/login', csrftProtection, async (req, res) => {
   try {
+    logger.info('[Info] Iniciando proceso de login');
     //variables de request
     const {_email,_password} = req.body;
     password.set(_password);
@@ -87,14 +94,19 @@ app.post('/login', csrftProtection, async (req, res) => {
         jwt.sign({
           email: emailBD.get(),
           id: idUsuario.get()
-        }, jwtSecret, {}, (err,token) => {
-          if (err) throw err;
+        }, jwtSecret, {}, (err, token) => {
+          if (err) {
+            logger.error('[Error] Error al generar el token JWT:', err);
+            throw err;
+          }
+          logger.info(`[Info] Token generado: ${token}`);
           res.cookie('token', token).json(emailBD.get());
         });
       }else{
         res.status(422).json({
           error: 'Contraseña incorrecta'
         });
+        logger.warn('[Warning] Contraseña incorrecta por el usuario '+email.get());
       }
     }else{
       res.status(422).json({
@@ -102,7 +114,8 @@ app.post('/login', csrftProtection, async (req, res) => {
       });
     }
   } catch (error) {
-    res.send('Error en la conexión: ' + error.message);
+    res.send('[Error] Algo a fallado (⊙_⊙)？');
+    logger.error('Error en la conexión:', error.message);
   }
 });
 

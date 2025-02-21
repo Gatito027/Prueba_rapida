@@ -1,5 +1,4 @@
 .vercel
 .env
-error.log
-combined.log
+Logs/
 node_modules
