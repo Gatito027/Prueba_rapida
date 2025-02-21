@@ -7,7 +7,7 @@ const { email, password } = require('./Models/loginModel.js');
 const { idUsuario, nombre, emailBD, passwordBD, telefono, rol, estado, fechaRegistro, sucursalId } = require('./Models/usuariosWeb.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-//const cors = require('cors');
+const cors = require('cors');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
@@ -41,11 +41,12 @@ const jwtSecret = process.env.JWTSECRET;
 //* Configuracion de bcrypt 
 const bcryptSalt=bcrypt.genSaltSync(10);
 //*Configuracion de Cors
-/*app.use(cors({
-    credentials: true,
+app.use(cors({
     origin: '*',
+    credentials: true,
+    
     //origin: 'http://localhost',
-}));*/
+}));
 //*Configuracion del helmet
 app.use(helmet());
 //*Permite usar json
