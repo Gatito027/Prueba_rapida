@@ -137,6 +137,11 @@ app.post('/login', csrftProtection, loginLimiter,
   }
 });
 
+app.post('/logout', csrftProtection,(req,res) => {
+  logger.info('Toquen finalizado');
+  res.cookie('token','').json(true);
+});
+
 app.post('/register', csrftProtection, async (req,res) => {
   
   try{
