@@ -42,3 +42,13 @@
 2025-02-21 18:00:26 [info]: Token generado para: test@email.com
 2025-02-21 18:01:15 [info]: Iniciando proceso de login
 2025-02-21 18:01:15 [info]: Token generado para: test@email.com
+2025-02-24 16:44:21 [info]: Iniciando proceso de login
+2025-02-24 16:44:21 [warn]: Contraseña incorrecta por el usuario test@email.com
+2025-02-24 16:44:23 [info]: Iniciando proceso de login
+2025-02-24 16:44:23 [warn]: Contraseña incorrecta por el usuario test@email.com
+2025-02-24 16:44:24 [info]: Iniciando proceso de login
+2025-02-24 16:44:24 [warn]: Contraseña incorrecta por el usuario test@email.com
+2025-02-24 16:44:25 [info]: Iniciando proceso de login
+2025-02-24 16:44:26 [warn]: Contraseña incorrecta por el usuario test@email.com
+2025-02-24 16:44:27 [info]: Iniciando proceso de login
+2025-02-24 16:44:27 [warn]: Contraseña incorrecta por el usuario test@email.com

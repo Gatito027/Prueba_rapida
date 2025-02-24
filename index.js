@@ -44,7 +44,7 @@ const bcryptSalt=bcrypt.genSaltSync(10);
 //*Configuracion de Cors
 app.use(cors({
     origin: '*',
-    credentials: true,
+    credentials: false,
     
     //origin: 'http://localhost',
 }));
@@ -132,7 +132,7 @@ app.post('/login', csrftProtection, loginLimiter,
       logger.warn('El usuario '+email.get()+' no existe');
     }
   } catch (error) {
-    res.send('[Error] Algo a fallado (⊙_⊙)？');
+    res.send('Algo a fallado (⊙_⊙)？');
     logger.error('Error grave:', error.message);
   }
 });
