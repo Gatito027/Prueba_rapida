@@ -42,7 +42,7 @@ const jwtSecret = process.env.JWTSECRET;
 //* Configuracion de bcrypt 
 const bcryptSalt=bcrypt.genSaltSync(10);
 //*Configuracion de Cors
-const allowedOrigins = ['http://localhost:3000', 'https://gatito027.vercel.app'];
+const allowedOrigins = ['http://localhost:3000', 'https://gatito027.vercel.app','https://arquitec.vercel.app'];
 /*app.use(cors({
     //origin: '*',
     credentials: true,
