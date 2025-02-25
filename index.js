@@ -7,7 +7,7 @@ const { email, password } = require('./Models/loginModel.js');
 const { idUsuario, nombre, emailBD, passwordBD, telefono, rol, estado, fechaRegistro, sucursalId } = require('./Models/usuariosWeb.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-//const cors = require('cors');
+const cors = require('cors');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
@@ -42,12 +42,26 @@ const jwtSecret = process.env.JWTSECRET;
 //* Configuracion de bcrypt 
 const bcryptSalt=bcrypt.genSaltSync(10);
 //*Configuracion de Cors
+const allowedOrigins = ['http://localhost:3000', 'https://gatito027.vercel.app'];
 /*app.use(cors({
-    origin: '*',
-    credentials: false,
-    
-    //origin: 'http://localhost',
+    //origin: '*',
+    credentials: true,
+    origin: 'http://localhost',
 }));*/
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Permitir solicitudes sin origen (como aplicaciones móviles)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'El origen CORS no está permitido.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 //*Configuracion del helmet
 app.use(helmet());
 //*Permite usar json
