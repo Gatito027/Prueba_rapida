@@ -152,8 +152,14 @@ app.post('/login', csrftProtection, loginLimiter,
 });
 
 app.post('/logout', csrftProtection,(req,res) => {
-  logger.info('Toquen finalizado');
-  res.cookie('token','').json(true);
+  try {
+    logger.info('Toquen finalizado');
+    res.cookie('token','').json(true);
+  } catch (error) {
+    res.send('Algo a fallado (⊙_⊙)？');
+    logger.error('Error grave:', error.message);
+  }
+  
 });
 
 app.post('/register', csrftProtection, async (req,res) => {
