@@ -135,18 +135,18 @@ app.post('/login', csrftProtection, loginLimiter,
         });
       }else{
         res.status(422).json({
-          error: 'Contraseña incorrecta'
+          msg: 'Contraseña incorrecta'
         });
         logger.warn('Contraseña incorrecta por el usuario '+email.get());
       }
     }else{
       res.status(422).json({
-        error: 'Usuario no encontrado'
+        msg: 'Usuario no encontrado'
       });
       logger.warn('El usuario '+email.get()+' no existe');
     }
   } catch (error) {
-    res.send('Algo a fallado (⊙_⊙)？');
+    res.status(422).json({msg:'Algo a fallado (⊙_⊙)？'});
     logger.error('Error grave:', error.message);
   }
 });
@@ -156,8 +156,8 @@ app.post('/logout', csrftProtection,(req,res) => {
     logger.info('Toquen finalizado');
     res.cookie('token','').json(true);
   } catch (error) {
-    res.send('Algo a fallado (⊙_⊙)？');
     logger.error('Error grave:', error.message);
+    res.send('Algo a fallado (⊙_⊙)？', error.message);
   }
   
 });
