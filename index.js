@@ -96,6 +96,15 @@ app.get('/', (req, res) => {
     res.json('¡Hi, World!, in express');
 });
 
+app.get('/cookies', function (req, res) {
+  // Cookies that have not been signed
+  console.log('Cookies: ', req.cookies);
+
+  // Cookies that have been signed
+  console.log('Signed Cookies: ', req.signedCookies);
+  res.json({Cookies: req.cookies, SignedCookies: req.signedCookies});
+});
+
 app.get('/test-connection', async (req, res) => {
     try {
         const result = await db.any('SELECT 1');
