@@ -105,3 +105,9 @@
 2025-02-27 10:54:09 [info]: Token generado para: test@email.com
 2025-02-27 16:22:13 [info]: Iniciando proceso de login
 2025-02-27 16:22:13 [info]: Token generado para: test@email.com
+2025-02-27 17:10:04 [info]: Iniciando proceso de login
+2025-02-27 17:10:04 [error]: Error al iniciar sesión: Los valores no son admitidos
+2025-02-27 17:10:36 [info]: Iniciando proceso de login
+2025-02-27 17:10:37 [warn]: Contraseña incorrecta por el usuario test@email.com
+2025-02-27 17:10:54 [info]: Iniciando proceso de login
+2025-02-27 17:10:55 [info]: Token generado para: test@email.com
