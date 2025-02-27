@@ -82,6 +82,9 @@ const csrftProtection = csurf({ cookie: true,
     return req.headers['x-csrf-token'] || req.body._csrf;
 }, });
 app.use(csurf({ cookie: true }));
+
+
+
 //*Configurar limitador
 const loginLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutos
@@ -103,8 +106,15 @@ app.get('/test-connection', async (req, res) => {
 });
 
 app.get('/get-csrf-token', (req, res) => {
+  
     const csrfToken = req.csrfToken();
-    res.cookie('XSRF-TOKEN', csrfToken);  // Configurar la cookie
+    //res.cookie('XSRF-TOKEN', csrfToken);  // Configurar la cookie
+    res.cookie('X-CSRF-Token', csrfToken, {
+      httpOnly: true,
+      secure: true, // Solo para HTTPS
+      sameSite: 'None' // Permitir cookies en solicitudes cross-site
+    });
+    
     res.send({ csrfToken: csrfToken });
 });
 
