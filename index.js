@@ -42,7 +42,8 @@ const jwtSecret = process.env.JWTSECRET;
 //* Configuracion de bcrypt 
 const bcryptSalt=bcrypt.genSaltSync(10);
 //*Configuracion de Cors
-const allowedOrigins = ['http://localhost:3000', 'https://gatito027.vercel.app','https://arquitec.vercel.app'];
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'https://gatito027.vercel.app', 'https://arquitec.vercel.app', 'http://192.168.56.1:3001'];
+
 /*app.use(cors({
     //origin: '*',
     credentials: true,
@@ -57,12 +58,16 @@ const corsOptions = {
     }
     return callback(null, true);
   },
-  credentials: true,
+  credentials: true,  // Permitir credenciales
 };
 
 app.use(cors(corsOptions));
+app.use((req, res, next) => {
+  console.log('CORS headers:', res.getHeaders());
+  next();
+});
 
-app.use(cors(corsOptions));
+
 //*Configuracion del helmet
 app.use(helmet());
 //*Permite usar json
@@ -99,8 +104,10 @@ app.get('/test-connection', async (req, res) => {
 
 app.get('/get-csrf-token', (req, res) => {
     const csrfToken = req.csrfToken();
+    res.cookie('XSRF-TOKEN', csrfToken);  // Configurar la cookie
     res.send({ csrfToken: csrfToken });
 });
+
 
 app.post('/login', csrftProtection, loginLimiter, 
   [
