@@ -75,7 +75,7 @@ const csrftProtection = csurf({ cookie: true,
   value: (req) => {
     // Revisa el token en los encabezados y en el cuerpo de la solicitud
     return req.headers['x-csrf-token'] || req.body._csrf;
-  }, });
+}, });
 app.use(csurf({ cookie: true }));
 //*Configurar limitador
 const loginLimiter = rateLimit({
@@ -102,35 +102,35 @@ app.get('/get-csrf-token', (req, res) => {
     res.send({ csrfToken: csrfToken });
 });
 
-app.post('/login', csrftProtection, loginLimiter,
+app.post('/login', csrftProtection, loginLimiter, 
   [
     body('_email').isEmail().withMessage('Email inválido'),
     body('_password').isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres')
   ], async (req, res) => {
   try {
     logger.info('Iniciando proceso de login');
-    //variables de request
     const errores = validationResult(req);
     if (!errores.isEmpty()) {
-      logger.error('Error al iniciar sesion: Los valores no son admitidos');
+      logger.error('Error al iniciar sesión: Los valores no son admitidos');
       return res.status(400).json({ errores: errores.array() });
     }
-    const {_email,_password} = req.body;
+
+    const { _email, _password } = req.body;
     password.set(_password);
     email.set(_email);
-    //comprueba credenciales
+
     const existe = await db.one('SELECT * FROM ExisteUsuario($1)', [email.get()]);
-    if(existe.existeusuario){
+    if (existe.existeusuario) {
       const pwdBD = await db.one('SELECT * FROM ObtenerPwdPorEmail($1)', [email.get()]);
-      const match = await bcrypt.compare(_password,pwdBD.obtenerpwdporemail);
-      if (match){
-        const usuarioData = await db.one('SELECT * FROM ObtenerUsuario($1)', [email.get()]); ;
+      const match = await bcrypt.compare(_password, pwdBD.obtenerpwdporemail);
+      if (match) {
+        const usuarioData = await db.one('SELECT * FROM ObtenerUsuario($1)', [email.get()]);
         idUsuario.set(usuarioData.id_usuario);
         emailBD.set(usuarioData.email);
         jwt.sign({
           email: emailBD.get(),
           id: idUsuario.get()
-        }, jwtSecret,{ expiresIn: '1h' }, (err, token) => {
+        }, jwtSecret, { expiresIn: '1h' }, (err, token) => {
           if (err) {
             logger.error('Error al generar el token JWT:', err);
             throw err;
@@ -138,34 +138,20 @@ app.post('/login', csrftProtection, loginLimiter,
           logger.info(`Token generado para: ${email.get()}`);
           res.cookie('token', token).json(emailBD.get());
         });
-      }else{
-        res.status(422).json({
-          msg: 'Contraseña incorrecta'
-        });
-        logger.warn('Contraseña incorrecta por el usuario '+email.get());
+      } else {
+        res.status(422).json({ msg: 'Contraseña incorrecta' });
+        logger.warn('Contraseña incorrecta por el usuario ' + email.get());
       }
-    }else{
-      res.status(422).json({
-        msg: 'Usuario no encontrado'
-      });
-      logger.warn('El usuario '+email.get()+' no existe');
+    } else {
+      res.status(422).json({ msg: 'Usuario no encontrado' });
+      logger.warn('El usuario ' + email.get() + ' no existe');
     }
   } catch (error) {
-    res.status(422).json({msg:'Algo a fallado (⊙_⊙)？'});
+    res.status(422).json({ msg: 'Algo a fallado (⊙_⊙)？' });
     logger.error('Error grave:', error.message);
   }
 });
 
-app.post('/logout', csrftProtection,(req,res) => {
-  try {
-    logger.info('Toquen finalizado');
-    res.cookie('token','').json(true);
-  } catch (error) {
-    logger.error('Error grave:', error.message);
-    res.send('Algo a fallado (⊙_⊙)？', error.message);
-  }
-  
-});
 
 app.post('/register', csrftProtection, async (req,res) => {
   
