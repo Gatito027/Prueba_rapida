@@ -108,13 +108,7 @@ app.get('/test-connection', async (req, res) => {
 app.get('/get-csrf-token', (req, res) => {
   
     const csrfToken = req.csrfToken();
-    //res.cookie('XSRF-TOKEN', csrfToken);  // Configurar la cookie
-    res.cookie('X-CSRF-Token', csrfToken, {
-      httpOnly: true,
-      secure: true, // Solo para HTTPS
-      sameSite: 'None' // Permitir cookies en solicitudes cross-site
-    });
-    
+    res.cookie('XSRF-TOKEN', csrfToken);  // Configurar la cookie
     res.send({ csrfToken: csrfToken });
 });
 
