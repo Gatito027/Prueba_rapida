@@ -50,7 +50,6 @@ const allowedOrigins = ['http://localhost:3000', 'https://gatito027.vercel.app',
 }));*/
 const corsOptions = {
   origin: function (origin, callback) {
-    // Permitir solicitudes sin origen (como aplicaciones móviles)
     if (!origin) return callback(null, true);
     if (allowedOrigins.indexOf(origin) === -1) {
       const msg = 'El origen CORS no está permitido.';
@@ -62,6 +61,8 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+app.use(cors(corsOptions));
 //*Configuracion del helmet
 app.use(helmet());
 //*Permite usar json
@@ -70,7 +71,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //* Configura el middleware csurf con protección basada en cookies
 app.use(cookieParser());
-const csrftProtection = csurf({ cookie: true });
+const csrftProtection = csurf({ cookie: true,
+  value: (req) => {
+    // Revisa el token en los encabezados y en el cuerpo de la solicitud
+    return req.headers['x-csrf-token'] || req.body._csrf;
+  }, });
 app.use(csurf({ cookie: true }));
 //*Configurar limitador
 const loginLimiter = rateLimit({
