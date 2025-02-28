@@ -160,7 +160,11 @@ app.post('/login', loginLimiter,
             throw err;
           }
           logger.info(`Token generado para: ${email.get()}`);
-          res.cookie('token', token).json(emailBD.get());
+          res.cookie('token', token, {
+            sameSite: 'none', // Permite el uso de la cookie en contextos entre sitios
+            secure: true,     // Solo envía la cookie sobre HTTPS
+            httpOnly: false    // Opcional: previene el acceso a la cookie desde JavaScript
+          }).json(emailBD.get());
         });
       } else {
         res.status(422).json({ msg: 'Contraseña incorrecta' });
@@ -177,7 +181,7 @@ app.post('/login', loginLimiter,
 });
 
 app.post('/logout', (req,res) => {
-  logger.info('Toquen finalizado');
+  logger.info('Token finalizado');
   res.cookie('token','').json(true);
 });
 
