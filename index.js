@@ -176,6 +176,11 @@ app.post('/login', loginLimiter,
   }
 });
 
+app.post('/logout', (req,res) => {
+  logger.info('Toquen finalizado');
+  res.cookie('token','').json(true);
+});
+
 
 app.post('/register', async (req,res) => {
   
