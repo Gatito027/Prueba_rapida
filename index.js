@@ -11,10 +11,12 @@ const cors = require('cors');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
-const csurf = require('csurf');
+var bodyParser = require('body-parser')
+const csrf = require('csurf');
 const { body, validationResult } = require('express-validator');
 const winston = require('winston');
 const rateLimit = require('express-rate-limit');
+
 //* Configuración del logger
 
 const logger = winston.createLogger({
@@ -76,12 +78,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //* Configura el middleware csurf con protección basada en cookies
 app.use(cookieParser());
-const csrftProtection = csurf({ cookie: true,
+var parseForm = bodyParser.urlencoded({ extended: false })
+const csrftProtection = csrf({ cookie: true,
   value: (req) => {
     // Revisa el token en los encabezados y en el cuerpo de la solicitud
     return req.headers['x-csrf-token'] || req.body._csrf;
 }, });
-app.use(csurf({ cookie: true }));
+app.use(csrf({ cookie: true }));
 
 
 
