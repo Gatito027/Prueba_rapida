@@ -79,11 +79,7 @@ app.use(express.urlencoded({ extended: true }));
 //* Configura el middleware csurf con protección basada en cookies
 app.use(cookieParser());
 var parseForm = bodyParser.urlencoded({ extended: false })
-const csrftProtection = csrf({ cookie: true,
-  value: (req) => {
-    // Revisa el token en los encabezados y en el cuerpo de la solicitud
-    return req.headers['x-csrf-token'] || req.body._csrf;
-}, });
+const csrftProtection = csrf({ cookie: true});
 app.use(csrf({ cookie: true }));
 
 
