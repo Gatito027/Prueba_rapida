@@ -130,7 +130,7 @@ app.get('/get-csrf-token', (req, res) => {
 });
 
 
-app.post('/login', csrftProtection, loginLimiter, 
+app.post('/login', csrftProtection, loginLimiter, parseForm,
   [
     body('_email').isEmail().withMessage('Email inválido'),
     body('_password').isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres')
