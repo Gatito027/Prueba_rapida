@@ -86,7 +86,7 @@ app.use(csrf({ cookie: true }));
 //*Configurar limitador
 const loginLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 5, // Máximo 5 intentos
+  max: 100, // Máximo 5 intentos
   message: 'Demasiados intentos de login, intenta más tarde',
 });
 
