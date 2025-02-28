@@ -84,7 +84,7 @@ const csrftProtection = csrf({ cookie: true,
     // Revisa el token en los encabezados y en el cuerpo de la solicitud
     return req.headers['x-csrf-token'] || req.body._csrf;
 }, });
-app.use(csrf({ cookie: true }));
+//app.use(csrf({ cookie: true }));
 
 
 
@@ -122,6 +122,7 @@ app.get('/get-csrf-token', (req, res) => {
     res.cookie('XSRF-TOKEN', csrfToken, { 
       httpOnly: true, 
       secure: true, 
+      domain: 'gatito027.vercel.app',
       sameSite: 'None', 
       path: '/', });  // Configurar la cookie
     console.log('CSRF Token generado:', csrfToken);
