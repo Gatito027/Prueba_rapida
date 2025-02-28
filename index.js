@@ -11,8 +11,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser')
-const csrf = require('csurf');
+//const csrf = require('csurf');
 const { body, validationResult } = require('express-validator');
 const winston = require('winston');
 const rateLimit = require('express-rate-limit');
@@ -78,10 +77,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //* Configura el middleware csurf con protección basada en cookies
 app.use(cookieParser());
-var parseForm = bodyParser.urlencoded({ extended: false })
+/*var parseForm = bodyParser.urlencoded({ extended: false })
 const csrftProtection = csrf({ cookie: true});
 app.use(csrf({ cookie: true }));
-
+*/
 
 
 //*Configurar limitador
@@ -113,7 +112,7 @@ app.get('/test-connection', async (req, res) => {
     }
 });
 
-app.get('/get-csrf-token', (req, res) => {
+/*app.get('/get-csrf-token', (req, res) => {
     const csrfToken = req.csrfToken();
     res.cookie('XSRF-TOKEN', csrfToken, { 
       httpOnly: true, 
@@ -124,10 +123,10 @@ app.get('/get-csrf-token', (req, res) => {
     console.log('CSRF Token generado:', csrfToken);
     console.log('Cookies enviadas:', res.getHeaders()['set-cookie']);
     res.send({ csrfToken: csrfToken });
-});
+});*/
 
 
-app.post('/login', csrftProtection, loginLimiter, parseForm,
+app.post('/login', loginLimiter,
   [
     body('_email').isEmail().withMessage('Email inválido'),
     body('_password').isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres')
@@ -178,7 +177,7 @@ app.post('/login', csrftProtection, loginLimiter, parseForm,
 });
 
 
-app.post('/register', csrftProtection, async (req,res) => {
+app.post('/register', async (req,res) => {
   
   try{
     const {_email,_password} = req.body;
