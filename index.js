@@ -84,7 +84,7 @@ const csrftProtection = csrf({ cookie: true,
     // Revisa el token en los encabezados y en el cuerpo de la solicitud
     return req.headers['x-csrf-token'] || req.body._csrf;
 }, });
-//app.use(csrf({ cookie: true }));
+app.use(csrf({ cookie: true }));
 
 
 
