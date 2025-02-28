@@ -122,6 +122,12 @@ app.get('/get-csrf-token', (req, res) => {
       sameSite: 'None', 
       //domain: 'gatito027.vercel.app', // Asegúrate de que el dominio sea correcto
       path: '/', });  // Configurar la cookie
+      res.cookie('_csrf', csrfToken, { 
+        httpOnly: true, 
+        secure: true, 
+        sameSite: 'None', 
+        path: '/', 
+      });
     console.log('CSRF Token generado:', csrfToken);
     console.log('Cookies enviadas:', res.getHeaders()['set-cookie']);
     res.send({ csrfToken: csrfToken });
