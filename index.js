@@ -81,7 +81,7 @@ const csrftProtection = csurf({ cookie: true,
     // Revisa el token en los encabezados y en el cuerpo de la solicitud
     return req.headers['x-csrf-token'] || req.body._csrf;
 }, });
-app.use(csurf({ cookie: true }));
+//app.use(csurf({ cookie: true }));
 
 
 
@@ -120,14 +120,7 @@ app.get('/get-csrf-token', (req, res) => {
       httpOnly: true, 
       secure: true, 
       sameSite: 'None', 
-      //domain: 'gatito027.vercel.app', // Asegúrate de que el dominio sea correcto
       path: '/', });  // Configurar la cookie
-    res.cookie('_csrf', { 
-      httpOnly: true, 
-      secure: true, 
-      sameSite: 'None', 
-      path: '/', 
-    });
     console.log('CSRF Token generado:', csrfToken);
     console.log('Cookies enviadas:', res.getHeaders()['set-cookie']);
     res.send({ csrfToken: csrfToken });
