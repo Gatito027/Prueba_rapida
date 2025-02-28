@@ -116,10 +116,11 @@ app.get('/test-connection', async (req, res) => {
 
 app.get('/get-csrf-token', (req, res) => {
     const csrfToken = req.csrfToken();
-    res.cookie('XSRF-TOKEN', csrfToken, { httpOnly: false, 
+    res.cookie('XSRF-TOKEN', csrfToken, { 
+      httpOnly: true, 
       secure: true, 
       sameSite: 'None', 
-      domain: 'gatito027.vercel.app', // Asegúrate de que el dominio sea correcto
+      //domain: 'gatito027.vercel.app', // Asegúrate de que el dominio sea correcto
       path: '/', });  // Configurar la cookie
     console.log('CSRF Token generado:', csrfToken);
     console.log('Cookies enviadas:', res.getHeaders()['set-cookie']);
