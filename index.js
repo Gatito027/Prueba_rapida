@@ -63,10 +63,10 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
   console.log('CORS headers:', res.getHeaders());
   next();
-});
+});*/
 
 
 //*Configuracion del helmet
@@ -162,7 +162,7 @@ app.post('/login', loginLimiter,
           logger.info(`Token generado para: ${email.get()}`);
           res.cookie('token', token, {
             sameSite: 'none', // Permite el uso de la cookie en contextos entre sitios
-            secure: true,     // Solo envía la cookie sobre HTTPS
+            secure: false,     //! Solo envía la cookie sobre HTTPS
             httpOnly: false    // Opcional: previene el acceso a la cookie desde JavaScript
           }).json(emailBD.get());
         });
@@ -181,8 +181,13 @@ app.post('/login', loginLimiter,
 });
 
 app.post('/logout', (req,res) => {
-  logger.info('Token finalizado');
-  res.cookie('token','').json(true);
+  try {
+    logger.info('Token finalizado');
+    res.cookie('token','').json(true);
+  } catch (error) {
+    logger.error('Error al borrar token');
+    res.status(422).json({ msg: 'Algo a fallado (⊙_⊙)？' });
+  }
 });
 
 
@@ -199,6 +204,146 @@ app.post('/register', async (req,res) => {
       res.status(422).json(e);
   }
 });
+
+app.get('/obtener-sucursales', async (req, res) => {
+  try {
+    const {token} = req.cookies;
+    logger.info('Obtencion de sucursales iniciada');
+    if (token){
+      jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+        const response = await db.query('SELECT * FROM ObtenerSucursales()');
+        res.json(response);
+      });
+    }else{
+      logger.warning('Se recibio un token no valido');
+      res.status(401).json({msg:'Token no valido'});
+    }
+  } catch (error) {
+    logger.error('Error grave al consultar');
+    res.status(422).json({ msg: 'Algo a fallado (⊙_⊙)？' });
+  }
+});
+
+app.get('/consulta-filtro', async (req, res) => {
+  try {
+    const { token } = req.cookies;
+    const { _sucursalId } = req.body;
+    logger.info('Obtencion de planeacion por sucursal iniciada');
+    if (token) {
+      jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+        if (err) {
+          logger.warning('Token no valido');
+          return res.status(401).json({ msg: 'Token no valido' });
+        }
+        try {
+          const response = await db.query('SELECT * FROM ObtenerPlaneacion(int $1)', [_sucursalId]);
+          res.json(response);
+        } catch (dbError) {
+          logger.error('Error en la consulta a la base de datos');
+          res.status(500).json({ msg: 'Error en la consulta a la base de datos'});
+        }
+      });
+    } else {
+      logger.warning('Se recibio un token no valido');
+      res.status(401).json({ msg: 'Token no valido' });
+    }
+  } catch (error) {
+    logger.error('Error grave al consultar por sucursal');
+    res.status(422).json({ msg: 'Algo ha fallado (⊙_⊙)？' });
+  }
+});
+
+
+//consulta fecha
+app.get('/consulta-filtro-fecha', async (req, res) => {
+  try {
+    const { token } = req.cookies;
+    const { _fecha } = req.body;
+    logger.info('Obtencion de planeacion por fecha iniciada');
+    if (token) {
+      jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+        if (err) {
+          logger.warning('Token no valido');
+          return res.status(401).json({ msg: 'Token no valido' });
+        }
+        try {
+          const response = await db.query('SELECT * FROM ObtenerPlaneacion(date $1)', [_fecha]);
+          res.json(response);
+        } catch (dbError) {
+          logger.error('Error en la consulta a la base de datos');
+          res.status(500).json({ msg: 'Error en la consulta a la base de datos'});
+        }
+      });
+    } else {
+      logger.warning('Se recibio un token no valido');
+      res.status(401).json({ msg: 'Token no valido' });
+    }
+  } catch (error) {
+    logger.error('Error grave al consultar por fecha');
+    res.status(422).json({ msg: 'Algo ha fallado (⊙_⊙)？' });
+  }
+});
+
+//consulta por estado
+app.get('/consulta-filtro-estado', async (req, res) => {
+  try {
+    const { token } = req.cookies;
+    const { _estado } = req.body;
+    logger.info('Obtencion de planeacion por estado iniciada');
+    if (token) {
+      jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+        if (err) {
+          logger.warning('Token no valido');
+          return res.status(401).json({ msg: 'Token no valido' });
+        }
+        try {
+          const response = await db.query('SELECT * FROM ObtenerPlaneacion(varchar $1)', [_estado]);
+          res.json(response);
+        } catch (dbError) {
+          logger.error('Error en la consulta a la base de datos');
+          res.status(500).json({ msg: 'Error en la consulta a la base de datos'});
+        }
+      });
+    } else {
+      logger.warning('Se recibio un token no valido');
+      res.status(401).json({ msg: 'Token no valido' });
+    }
+  } catch (error) {
+    logger.error('Error grave al consultar por estado');
+    res.status(422).json({ msg: 'Algo ha fallado (⊙_⊙)？' });
+  }
+});
+
+//consulta existencia de produccion
+app.get('/consulta-existecia-produccion', async (req, res) => {
+  try {
+    const { token } = req.cookies;
+    const { _sucursalId, _fecha, _produccionEstimada, _estado } = req.body;
+    logger.info('Obtencion de planeacion por estado iniciada');
+    if (token) {
+      jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+        if (err) {
+          logger.warning('Token no valido');
+          return res.status(401).json({ msg: 'Token no valido' });
+        }
+        try {
+          const response = await db.one('SELECT * FROM ExistePlaneacion($1,date $2, $3, $4)', [_sucursalId, _fecha, _produccionEstimada, _estado]);
+          res.json(response);
+        } catch (dbError) {
+          logger.error('Error en la consulta a la base de datos');
+          res.status(500).json({ msg: 'Error en la consulta a la base de datos'});
+        }
+      });
+    } else {
+      logger.warning('Se recibio un token no valido');
+      res.status(401).json({ msg: 'Token no valido' });
+    }
+  } catch (error) {
+    logger.error('Error grave al consultar por estado');
+    res.status(422).json({ msg: 'Algo ha fallado (⊙_⊙)？' });
+  }
+});
+
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);

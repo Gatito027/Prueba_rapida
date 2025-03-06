@@ -111,3 +111,62 @@
 2025-02-27 17:10:37 [warn]: Contraseña incorrecta por el usuario test@email.com
 2025-02-27 17:10:54 [info]: Iniciando proceso de login
 2025-02-27 17:10:55 [info]: Token generado para: test@email.com
+2025-03-05 16:39:46 [info]: Iniciando proceso de login
+2025-03-05 16:39:46 [info]: Token generado para: test@email.com
+2025-03-05 16:40:24 [info]: Otencion de sucursales iniciada
+2025-03-05 16:41:27 [info]: Otencion de sucursales iniciada
+2025-03-05 16:44:47 [info]: Otencion de sucursales iniciada
+2025-03-05 16:45:03 [info]: Otencion de sucursales iniciada
+2025-03-05 16:45:48 [info]: Otencion de sucursales iniciada
+2025-03-05 16:46:13 [info]: Otencion de sucursales iniciada
+2025-03-05 16:46:15 [info]: Otencion de sucursales iniciada
+2025-03-05 16:47:55 [info]: Iniciando proceso de login
+2025-03-05 16:47:55 [info]: Token generado para: test@email.com
+2025-03-05 16:48:03 [info]: Obtencion de sucursales iniciada
+2025-03-05 17:04:52 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 17:09:18 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 17:11:14 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 17:11:40 [error]: Error grave al consultar por sucursal
+2025-03-05 17:12:24 [error]: Error grave al consultar por sucursal
+2025-03-05 17:13:08 [error]: Error grave al consultar por sucursal
+2025-03-05 17:13:38 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 17:13:55 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 17:14:07 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 22:58:36 [info]: Iniciando proceso de login
+2025-03-05 22:58:36 [info]: Token generado para: test@email.com
+2025-03-05 22:58:43 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 22:59:12 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 22:59:28 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:25:04 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:29:11 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:30:31 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:30:31 [error]: Error en la consulta a la base de datos
+2025-03-05 23:31:21 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:31:21 [error]: Error en la consulta a la base de datos
+2025-03-05 23:32:25 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:32:25 [error]: Error en la consulta a la base de datos
+2025-03-05 23:32:52 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:33:40 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:34:01 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:35:13 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:36:56 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:36:56 [error]: Error en la consulta a la base de datos
+2025-03-05 23:37:16 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:37:16 [error]: Error en la consulta a la base de datos
+2025-03-05 23:37:40 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:37:40 [error]: Error en la consulta a la base de datos
+2025-03-05 23:38:48 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:38:48 [error]: Error en la consulta a la base de datos
+2025-03-05 23:38:50 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:38:50 [error]: Error en la consulta a la base de datos
+2025-03-05 23:38:52 [info]: Obtencion de planeacion por sucursal iniciada
+2025-03-05 23:38:52 [error]: Error en la consulta a la base de datos
+2025-03-05 23:39:33 [info]: Obtencion de planeacion por fecha iniciada
+2025-03-05 23:48:27 [info]: Obtencion de planeacion por estado iniciada
+2025-03-06 17:02:17 [info]: Obtencion de planeacion por estado iniciada
+2025-03-06 17:02:17 [error]: Error grave al consultar por estado
+2025-03-06 17:02:37 [info]: Iniciando proceso de login
+2025-03-06 17:02:37 [info]: Token generado para: test@email.com
+2025-03-06 17:02:42 [info]: Obtencion de planeacion por estado iniciada
+2025-03-06 17:04:58 [info]: Obtencion de planeacion por estado iniciada
+2025-03-06 17:05:04 [info]: Obtencion de planeacion por estado iniciada
