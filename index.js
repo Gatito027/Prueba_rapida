@@ -162,7 +162,7 @@ app.post('/login', loginLimiter,
           logger.info(`Token generado para: ${email.get()}`);
           res.cookie('token', token, {
             sameSite: 'none', // Permite el uso de la cookie en contextos entre sitios
-            secure: false,     //! Solo envía la cookie sobre HTTPS
+            secure: true,     //! Solo envía la cookie sobre HTTPS
             httpOnly: false    // Opcional: previene el acceso a la cookie desde JavaScript
           }).json(emailBD.get());
         });
@@ -205,7 +205,7 @@ app.post('/register', async (req,res) => {
   }
 });
 
-app.get('/obtener-sucursales', async (req, res) => {
+app.get('/obtener-sucursales', [body('_sucursalId').notEmpty().withMessage('El ID de la sucursal es requerido').isInt().withMessage('El ID de la sucursal debe ser un número entero'),], async (req, res) => {
   try {
     const {token} = req.cookies;
     logger.info('Obtencion de sucursales iniciada');
