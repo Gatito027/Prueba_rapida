@@ -205,7 +205,7 @@ app.post('/register', async (req,res) => {
   }
 });
 
-app.get('/obtener-sucursales', [body('_sucursalId').notEmpty().withMessage('El ID de la sucursal es requerido').isInt().withMessage('El ID de la sucursal debe ser un número entero'),], async (req, res) => {
+app.get('/obtener-sucursales', async (req, res) => {
   try {
     const {token} = req.cookies;
     logger.info('Obtencion de sucursales iniciada');
@@ -224,7 +224,7 @@ app.get('/obtener-sucursales', [body('_sucursalId').notEmpty().withMessage('El I
   }
 });
 
-app.get('/consulta-filtro', async (req, res) => {
+app.get('/consulta-filtro', [body('_sucursalId').notEmpty().withMessage('El ID de la sucursal es requerido').isInt().withMessage('El ID de la sucursal debe ser un número entero'),], async (req, res) => {
   try {
     const { token } = req.cookies;
     const { _sucursalId } = req.body;
@@ -255,7 +255,7 @@ app.get('/consulta-filtro', async (req, res) => {
 
 
 //consulta fecha
-app.get('/consulta-filtro-fecha', async (req, res) => {
+app.get('/consulta-filtro-fecha', [body('_fecha').notEmpty().withMessage('La fecha es requerida').isDate().withMessage('La fecha debe tener un formato válido (YYYY-MM-DD)'),], async (req, res) => {
   try {
     const { token } = req.cookies;
     const { _fecha } = req.body;
@@ -285,7 +285,12 @@ app.get('/consulta-filtro-fecha', async (req, res) => {
 });
 
 //consulta por estado
-app.get('/consulta-filtro-estado', async (req, res) => {
+app.get('/consulta-filtro-estado', [
+  body('_estado')
+    .notEmpty().withMessage('El estado es requerido')
+    .isString().withMessage('El estado debe ser una cadena de texto')
+    .isLength({ max: 20 }).withMessage('El estado no puede tener más de 20 caracteres'),
+], async (req, res) => {
   try {
     const { token } = req.cookies;
     const { _estado } = req.body;
@@ -315,7 +320,15 @@ app.get('/consulta-filtro-estado', async (req, res) => {
 });
 
 //consulta existencia de produccion
-app.get('/consulta-existecia-produccion', async (req, res) => {
+app.get('/consulta-existecia-produccion', [
+  body('_sucursalId').notEmpty().withMessage('El ID de la sucursal es requerido').isInt().withMessage('El ID de la sucursal debe ser un número entero'),
+  body('_fecha').notEmpty().withMessage('La fecha es requerida').isDate().withMessage('La fecha debe tener un formato válido (YYYY-MM-DD)'),
+  body('_produccionEstimada').notEmpty().withMessage('La producción estimada es requerida').isNumeric().withMessage('La producción estimada debe ser un número'),
+  body('_estado')
+    .notEmpty().withMessage('El estado es requerido')
+    .isString().withMessage('El estado debe ser una cadena de texto')
+    .isLength({ max: 20 }).withMessage('El estado no puede tener más de 20 caracteres'),
+], async (req, res) => {
   try {
     const { token } = req.cookies;
     const { _sucursalId, _fecha, _produccionEstimada, _estado } = req.body;
