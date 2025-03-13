@@ -7,8 +7,10 @@ const cookieParser = require('cookie-parser');
 const mainRoutes = require('./Routers/mainRoutes');
 
 //*Configuracion de Cors
-//Todo: Quitar origenes de desarrollo
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'https://gatito027.vercel.app', 'https://arquitec.vercel.app', 'http://192.168.56.1:3001'];
+const dotenv = require('dotenv');
+dotenv.config();
+
+const allowedOrigins = process.env.ALLOWED_ORIGINS.split(',');
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -31,7 +33,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //* Configura el middleware csurf con protección basada en cookies
 app.use(cookieParser());
-
 
 app.use('/', mainRoutes);
 

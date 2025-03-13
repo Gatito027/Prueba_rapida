@@ -1,186 +1,49 @@
-2025-02-21 17:32:31 [info]: [Info] Iniciando proceso de login
-2025-02-21 17:32:32 [warn]: [Warning] Contraseña incorrecta por el usuario test@email.com
-2025-02-21 17:32:41 [info]: [Info] Iniciando proceso de login
-2025-02-21 17:32:41 [info]: [Info] Token generado: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwiaWQiOjMsImlhdCI6MTc0MDE4MDc2MX0.HmuCHhEuIseSrLmbjpBj9PN2w3bjSMoSHXHml7hAlEo
-2025-02-21 17:32:48 [info]: [Info] Iniciando proceso de login
-2025-02-21 17:33:01 [info]: [Info] Iniciando proceso de login
-2025-02-21 17:33:01 [info]: [Info] Token generado: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwiaWQiOjMsImlhdCI6MTc0MDE4MDc4MX0.DmWBbzxtcbyTfrbItdtNqcvJR9ZL7_19T7HAEV5gK0s
-2025-02-21 17:42:08 [info]: Iniciando proceso de login
-2025-02-21 17:42:08 [info]: [Info] Token generado: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwiaWQiOjMsImlhdCI6MTc0MDE4MTMyOH0.lnDoucgUbSXfSALoMqzSukQ86nUPAzKiDeNOQO8cGIU
-2025-02-21 17:42:15 [info]: Iniciando proceso de login
-2025-02-21 17:42:17 [info]: Iniciando proceso de login
-2025-02-21 17:42:19 [info]: Iniciando proceso de login
-2025-02-21 17:42:20 [info]: Iniciando proceso de login
-2025-02-21 17:44:21 [info]: Iniciando proceso de login
-2025-02-21 17:44:21 [info]: [Info] Token generado: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwiaWQiOjMsImlhdCI6MTc0MDE4MTQ2MSwiZXhwIjoxNzQwMTg1MDYxfQ.nhGp67VEkaAWs4Vwz6HyM8NNLv5voGje75DXRzYOB4M
-2025-02-21 17:48:53 [info]: Iniciando proceso de login por undefined
-2025-02-21 17:48:53 [error]: Error al iniciar sesion: [object Object]
-2025-02-21 17:49:10 [info]: Iniciando proceso de login por undefined
-2025-02-21 17:49:10 [error]: Error al iniciar sesion: [object Object]
-2025-02-21 17:49:11 [info]: Iniciando proceso de login por undefined
-2025-02-21 17:49:11 [error]: Error al iniciar sesion: [object Object]
-2025-02-21 17:49:14 [info]: Iniciando proceso de login por undefined
-2025-02-21 17:49:14 [error]: Error al iniciar sesion: [object Object]
-2025-02-21 17:49:15 [info]: Iniciando proceso de login por undefined
-2025-02-21 17:49:15 [error]: Error al iniciar sesion: [object Object]
-2025-02-21 17:50:48 [info]: Iniciando proceso de login
-2025-02-21 17:50:48 [warn]: El usuario test@email.co no existe
-2025-02-21 17:50:55 [info]: Iniciando proceso de login
-2025-02-21 17:50:55 [error]: Error al iniciar sesion: [object Object]
-2025-02-21 17:51:17 [info]: Iniciando proceso de login
-2025-02-21 17:51:17 [error]: Error al iniciar sesion: undefined
-2025-02-21 17:52:56 [info]: Iniciando proceso de login
-2025-02-21 17:52:56 [error]: Error grave:
-2025-02-21 17:53:54 [info]: Iniciando proceso de login
-2025-02-21 17:54:54 [info]: Iniciando proceso de login
-2025-02-21 17:54:54 [error]: Error al iniciar sesion: Los valores no son admitidos
-2025-02-21 17:55:00 [info]: Iniciando proceso de login
-2025-02-21 17:55:00 [info]: Token generado para: test@email.com
-2025-02-21 17:59:43 [info]: Iniciando proceso de login
-2025-02-21 17:59:44 [info]: Token generado para: test@email.com
-2025-02-21 18:00:26 [info]: Iniciando proceso de login
-2025-02-21 18:00:26 [info]: Token generado para: test@email.com
-2025-02-21 18:01:15 [info]: Iniciando proceso de login
-2025-02-21 18:01:15 [info]: Token generado para: test@email.com
-2025-02-24 16:44:21 [info]: Iniciando proceso de login
-2025-02-24 16:44:21 [warn]: Contraseña incorrecta por el usuario test@email.com
-2025-02-24 16:44:23 [info]: Iniciando proceso de login
-2025-02-24 16:44:23 [warn]: Contraseña incorrecta por el usuario test@email.com
-2025-02-24 16:44:24 [info]: Iniciando proceso de login
-2025-02-24 16:44:24 [warn]: Contraseña incorrecta por el usuario test@email.com
-2025-02-24 16:44:25 [info]: Iniciando proceso de login
-2025-02-24 16:44:26 [warn]: Contraseña incorrecta por el usuario test@email.com
-2025-02-24 16:44:27 [info]: Iniciando proceso de login
-2025-02-24 16:44:27 [warn]: Contraseña incorrecta por el usuario test@email.com
-2025-02-26 13:30:30 [info]: Iniciando proceso de login
-2025-02-26 13:30:30 [info]: Token generado para: test@email.com
-2025-02-26 13:30:39 [info]: Iniciando proceso de login
-2025-02-26 13:30:39 [error]: Error al iniciar sesion: Los valores no son admitidos
-2025-02-26 13:31:29 [info]: Iniciando proceso de login
-2025-02-26 13:31:30 [info]: Token generado para: test@email.com
-2025-02-26 13:32:28 [info]: Iniciando proceso de login
-2025-02-26 13:32:28 [info]: Token generado para: test@email.com
-2025-02-26 13:32:30 [info]: Iniciando proceso de login
-2025-02-26 13:32:31 [info]: Token generado para: test@email.com
-2025-02-26 13:32:38 [info]: Toquen finalizado
-2025-02-26 13:33:57 [info]: Iniciando proceso de login
-2025-02-26 13:33:57 [info]: Token generado para: test@email.com
-2025-02-26 13:37:58 [info]: Iniciando proceso de login
-2025-02-26 13:37:58 [info]: Token generado para: test@email.com
-2025-02-26 13:38:14 [info]: Iniciando proceso de login
-2025-02-26 13:38:15 [error]: Error grave:
-2025-02-26 13:39:08 [info]: Iniciando proceso de login
-2025-02-26 13:39:08 [error]: Error grave:
-2025-02-26 13:39:34 [info]: Iniciando proceso de login
-2025-02-26 13:39:34 [error]: Error grave:
-2025-02-26 13:40:04 [info]: Iniciando proceso de login
-2025-02-26 13:40:04 [error]: Error grave:
-2025-02-26 13:40:11 [info]: Iniciando proceso de login
-2025-02-26 13:40:12 [error]: Error grave:
-2025-02-26 13:40:59 [info]: Iniciando proceso de login
-2025-02-26 13:41:00 [error]: Error grave:
-2025-02-26 15:53:08 [info]: Iniciando proceso de login
-2025-02-26 15:53:12 [error]: Error grave:
-2025-02-26 15:53:35 [info]: Iniciando proceso de login
-2025-02-26 15:53:35 [error]: Error grave:
-2025-02-26 15:53:36 [info]: Iniciando proceso de login
-2025-02-26 15:53:37 [error]: Error grave:
-2025-02-26 15:53:38 [info]: Iniciando proceso de login
-2025-02-26 15:53:38 [error]: Error grave:
-2025-02-26 15:54:09 [info]: Iniciando proceso de login
-2025-02-26 15:54:10 [info]: Token generado para: test@email.com
-2025-02-26 23:41:34 [info]: Iniciando proceso de login
-2025-02-26 23:41:34 [info]: Token generado para: test@email.com
-2025-02-26 23:48:00 [info]: Iniciando proceso de login
-2025-02-26 23:48:01 [info]: Token generado para: test@email.com
-2025-02-26 23:56:56 [info]: Iniciando proceso de login
-2025-02-26 23:56:56 [info]: Token generado para: test@email.com
-2025-02-26 23:56:59 [info]: Iniciando proceso de login
-2025-02-26 23:56:59 [info]: Token generado para: test@email.com
-2025-02-27 10:48:58 [info]: Iniciando proceso de login
-2025-02-27 10:48:59 [info]: Token generado para: test@email.com
-2025-02-27 10:53:15 [info]: Iniciando proceso de login
-2025-02-27 10:53:15 [error]: Error al iniciar sesión: Los valores no son admitidos
-2025-02-27 10:54:09 [info]: Iniciando proceso de login
-2025-02-27 10:54:09 [info]: Token generado para: test@email.com
-2025-02-27 16:22:13 [info]: Iniciando proceso de login
-2025-02-27 16:22:13 [info]: Token generado para: test@email.com
-2025-02-27 17:10:04 [info]: Iniciando proceso de login
-2025-02-27 17:10:04 [error]: Error al iniciar sesión: Los valores no son admitidos
-2025-02-27 17:10:36 [info]: Iniciando proceso de login
-2025-02-27 17:10:37 [warn]: Contraseña incorrecta por el usuario test@email.com
-2025-02-27 17:10:54 [info]: Iniciando proceso de login
-2025-02-27 17:10:55 [info]: Token generado para: test@email.com
-2025-03-05 16:39:46 [info]: Iniciando proceso de login
-2025-03-05 16:39:46 [info]: Token generado para: test@email.com
-2025-03-05 16:40:24 [info]: Otencion de sucursales iniciada
-2025-03-05 16:41:27 [info]: Otencion de sucursales iniciada
-2025-03-05 16:44:47 [info]: Otencion de sucursales iniciada
-2025-03-05 16:45:03 [info]: Otencion de sucursales iniciada
-2025-03-05 16:45:48 [info]: Otencion de sucursales iniciada
-2025-03-05 16:46:13 [info]: Otencion de sucursales iniciada
-2025-03-05 16:46:15 [info]: Otencion de sucursales iniciada
-2025-03-05 16:47:55 [info]: Iniciando proceso de login
-2025-03-05 16:47:55 [info]: Token generado para: test@email.com
-2025-03-05 16:48:03 [info]: Obtencion de sucursales iniciada
-2025-03-05 17:04:52 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 17:09:18 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 17:11:14 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 17:11:40 [error]: Error grave al consultar por sucursal
-2025-03-05 17:12:24 [error]: Error grave al consultar por sucursal
-2025-03-05 17:13:08 [error]: Error grave al consultar por sucursal
-2025-03-05 17:13:38 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 17:13:55 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 17:14:07 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 22:58:36 [info]: Iniciando proceso de login
-2025-03-05 22:58:36 [info]: Token generado para: test@email.com
-2025-03-05 22:58:43 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 22:59:12 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 22:59:28 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:25:04 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:29:11 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:30:31 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:30:31 [error]: Error en la consulta a la base de datos
-2025-03-05 23:31:21 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:31:21 [error]: Error en la consulta a la base de datos
-2025-03-05 23:32:25 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:32:25 [error]: Error en la consulta a la base de datos
-2025-03-05 23:32:52 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:33:40 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:34:01 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:35:13 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:36:56 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:36:56 [error]: Error en la consulta a la base de datos
-2025-03-05 23:37:16 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:37:16 [error]: Error en la consulta a la base de datos
-2025-03-05 23:37:40 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:37:40 [error]: Error en la consulta a la base de datos
-2025-03-05 23:38:48 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:38:48 [error]: Error en la consulta a la base de datos
-2025-03-05 23:38:50 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:38:50 [error]: Error en la consulta a la base de datos
-2025-03-05 23:38:52 [info]: Obtencion de planeacion por sucursal iniciada
-2025-03-05 23:38:52 [error]: Error en la consulta a la base de datos
-2025-03-05 23:39:33 [info]: Obtencion de planeacion por fecha iniciada
-2025-03-05 23:48:27 [info]: Obtencion de planeacion por estado iniciada
-2025-03-06 17:02:17 [info]: Obtencion de planeacion por estado iniciada
-2025-03-06 17:02:17 [error]: Error grave al consultar por estado
-2025-03-06 17:02:37 [info]: Iniciando proceso de login
-2025-03-06 17:02:37 [info]: Token generado para: test@email.com
-2025-03-06 17:02:42 [info]: Obtencion de planeacion por estado iniciada
-2025-03-06 17:04:58 [info]: Obtencion de planeacion por estado iniciada
-2025-03-06 17:05:04 [info]: Obtencion de planeacion por estado iniciada
-2025-03-06 19:10:07 [info]: Obteniendo usuarios
-2025-03-06 19:13:12 [info]: Obteniendo usuarios
-2025-03-06 19:23:46 [info]: Iniciando proceso de login
-2025-03-06 19:23:46 [warn]: El usuario undefined no existe
-2025-03-06 19:24:41 [info]: Iniciando proceso de login
-2025-03-06 19:24:41 [warn]: El usuario undefined no existe
-2025-03-06 19:25:38 [info]: Iniciando proceso de login
-2025-03-06 19:25:38 [warn]: El usuario undefined no existe
-2025-03-06 19:25:51 [info]: Iniciando proceso de login
-2025-03-06 19:25:51 [info]: Token generado para: test@email.com
-2025-03-06 19:37:15 [info]: Iniciando proceso de login
-2025-03-06 19:37:15 [info]: Token generado para: test@email.com
-2025-03-06 19:37:29 [info]: Token finalizado
-2025-03-06 19:37:49 [info]: Token finalizado
+2025-03-12 23:18:04 [info]: Iniciando proceso de login
+2025-03-12 23:18:04 [info]: Token generado para: test@email.com
+2025-03-12 23:18:37 [info]: Token eliminado para 
+2025-03-12 23:18:51 [info]: Iniciando proceso de login
+2025-03-12 23:18:51 [info]: Token generado para: test@email.com
+2025-03-12 23:19:37 [info]: Consulta de token iniciada
+2025-03-12 23:19:37 [info]: Token verificado para el usuario test@email.com
+2025-03-12 23:20:09 [info]: Obtención de sucursales iniciada por test@email.com
+2025-03-12 23:20:41 [info]: Token eliminado para 
+2025-03-12 23:20:49 [info]: Iniciando proceso de login
+2025-03-12 23:20:49 [warn]: Contraseña incorrecta por el usuario test@email.com
+2025-03-12 23:21:10 [info]: Iniciando proceso de login
+2025-03-12 23:21:11 [warn]: Contraseña incorrecta por el usuario test@email.com
+2025-03-12 23:21:30 [info]: Iniciando proceso de login
+2025-03-12 23:21:30 [warn]: El usuario test no existe
+2025-03-12 23:21:37 [info]: Iniciando proceso de login
+2025-03-12 23:21:38 [info]: Token generado para: test@email.com
+2025-03-12 23:24:02 [info]: Iniciando proceso de login
+2025-03-12 23:24:03 [warn]: Contraseña incorrecta por el usuario test@email.com
+2025-03-12 23:24:04 [info]: Iniciando proceso de login
+2025-03-12 23:24:04 [warn]: Contraseña incorrecta por el usuario test@email.com
+2025-03-12 23:24:05 [info]: Iniciando proceso de login
+2025-03-12 23:24:05 [warn]: Contraseña incorrecta por el usuario test@email.com
+2025-03-12 23:24:06 [info]: Iniciando proceso de login
+2025-03-12 23:24:06 [warn]: Contraseña incorrecta por el usuario test@email.com
+2025-03-12 23:24:07 [info]: Iniciando proceso de login
+2025-03-12 23:24:07 [warn]: Contraseña incorrecta por el usuario test@email.com
+2025-03-12 23:29:43 [info]: Iniciando proceso de login
+2025-03-12 23:29:43 [info]: Token generado para: test@email.com
+2025-03-12 23:30:25 [info]: Obtención de sucursales iniciada por test@email.com
+2025-03-12 23:32:22 [info]: Obtención de planeación por sucursal iniciada por test@email.com
+2025-03-12 23:32:28 [info]: Obtención de planeación por sucursal iniciada por test@email.com
+2025-03-12 23:32:37 [info]: Obtención de planeación por sucursal iniciada por test@email.com
+2025-03-12 23:34:23 [info]: Obtención de planeación por fecha iniciada por test@email.com
+2025-03-12 23:37:56 [info]: Obtención de planeación por fecha iniciada por test@email.com
+2025-03-12 23:38:37 [info]: Obtención de planeación iniciada por test@email.com
+2025-03-12 23:39:08 [info]: Obtención de planeación por fecha iniciada por test@email.com
+2025-03-12 23:40:54 [info]: Obtención de planeación por fecha iniciada por test@email.com
+2025-03-12 23:40:56 [info]: Obtención de planeación por fecha iniciada por test@email.com
+2025-03-12 23:40:57 [info]: Obtención de planeación por fecha iniciada por test@email.com
+2025-03-12 23:40:58 [info]: Obtención de planeación por fecha iniciada por test@email.com
+2025-03-12 23:40:59 [info]: Obtención de planeación por fecha iniciada por test@email.com
+2025-03-12 23:41:41 [info]: Obtención de planeación por fecha iniciada por test@email.com
+2025-03-12 23:41:44 [info]: Obtención de planeación por fecha iniciada por test@email.com
+2025-03-12 23:41:45 [info]: Obtención de planeación por fecha iniciada por test@email.com
+2025-03-12 23:43:06 [info]: Obtención de planeación por fecha iniciada por test@email.com
+2025-03-12 23:44:30 [info]: Obtención de planeación por fecha iniciada por test@email.com
+2025-03-12 23:46:05 [info]: Obtención de planeación por estado iniciada por test@email.com
+2025-03-12 23:48:58 [info]: Obtención de planeación por sucursal iniciada por test@email.com
