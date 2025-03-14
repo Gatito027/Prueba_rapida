@@ -28,7 +28,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 //*Configuracion del helmet
 app.use(helmet());
-app.use(cspConfig);
+//!app.use(cspConfig);
 //*Permite usar json
 app.use(express.json());
 //* Configura el middleware de parsing de cuerpo (body-parser)
