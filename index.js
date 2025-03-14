@@ -36,7 +36,9 @@ app.use(express.urlencoded({ extended: true }));
 //* Configura el middleware csurf con protección basada en cookies
 app.use(cookieParser());
 
-app.use('/', mainRoutes);
+app.use('/', mainRoutes, cspConfig);
+app.use('/robots.txt', cspConfig);
+app.use('/sitemap.xml', cspConfig);
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
