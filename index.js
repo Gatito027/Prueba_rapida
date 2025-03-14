@@ -37,8 +37,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use('/', mainRoutes, cspConfig);
-app.use('/robots.txt', cspConfig);
-app.use('/sitemap.xml', cspConfig);
+app.get('/robots.txt', cspConfig, (req, res) => {
+  res.json('No valido');
+});
+app.get('/sitemap.xml', cspConfig, (req, res) => {
+  res.json('No valido');
+});
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
