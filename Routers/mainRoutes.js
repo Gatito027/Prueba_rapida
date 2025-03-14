@@ -11,7 +11,7 @@ const logoutController = require('../Controllers/logoutController');
 const existenciaController = require('../Controllers/existenciaController');
 const loginController = require('../Controllers/loginController');
 
-// TODO: Rutas del proyecto
+//* Rutas del proyecto
 router.get('/', userController.getUsers);
 
 router.get('/ValidarToken', validarTokenController.validarToken);

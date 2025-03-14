@@ -5,6 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const mainRoutes = require('./Routers/mainRoutes');
+const cspConfig = require('./cspConfig');
 
 //*Configuracion de Cors
 const dotenv = require('dotenv');
@@ -27,6 +28,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 //*Configuracion del helmet
 app.use(helmet());
+app.use(cspConfig);
 //*Permite usar json
 app.use(express.json());
 //* Configura el middleware de parsing de cuerpo (body-parser)
