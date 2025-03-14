@@ -5,7 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const mainRoutes = require('./Routers/mainRoutes');
-const cspConfig = require('./cspConfig');
+const cspConfig = require('./Config/cspConfig');
 
 //*Configuracion de Cors
 const dotenv = require('dotenv');
